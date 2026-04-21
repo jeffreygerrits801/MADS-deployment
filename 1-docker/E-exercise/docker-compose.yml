@@ -23,12 +23,13 @@ services:
       - ./data:/app/data
       - ./logs:/app/logs
     ports:
-      - "8000:8000"
+      - "8501:8501"
     depends_on:
       - preprocess
+    restart: unless-stopped
 
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8000/health && exit 0 || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost:8501"]
       interval: 10s
       timeout: 10s
       retries: 3

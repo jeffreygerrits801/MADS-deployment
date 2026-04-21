@@ -16,7 +16,7 @@ If we isolate these steps into docker containers, we have a few advantages in pr
 - for each step, it doesnt really matter what happens inside the container; we only care about input and output, and some API endpoints. This makes it easier to improve, change or modify each step without breaking the entire pipeline.
 - each step can be scaled independently. For example, if data ingestion is slow, we can run multiple instances of the ingestion container in parallel.
 - each step can be monitored independently. If one step fails, it is easier to identify and fix the issue.
-
+ 
 ## Exercise
 
 focus on creating three dockerfiles, one for each step of the pipeline. You can use the existing notebooks as a starting point.
