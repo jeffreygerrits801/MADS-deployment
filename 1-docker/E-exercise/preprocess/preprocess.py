@@ -28,7 +28,7 @@ def bin_time(time):
 
 
 def remove_url(text):
-    return re.sub(r'^https?:\/\/.*[\r\n]*', '', text)
+    return re.sub(r'^https?:\/\/.*[\r\n]*', '', str(text))
 
 
 def main():
@@ -40,8 +40,8 @@ def main():
     df["time"] = pd.to_datetime(df["post_metadata_time"], unit="s")
     df["bintime"] = df["time"].apply(bin_time)
 
-    df["text"] = df["text"].astype(str)
-    df["text"] = df["text"].str.replace("\n", " ")
+    df["text"] = df["text"].fillna("").astype(str)
+    df["text"] = df["text"].str.replace("\n", " ", regex=False)
     df["text"] = df["text"].apply(remove_url)
     df["text"] = df["text"].str.lower()
 

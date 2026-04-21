@@ -26,7 +26,6 @@ services:
       - "8501:8501"
     depends_on:
       - preprocess
-    restart: unless-stopped
 
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:8501"]
