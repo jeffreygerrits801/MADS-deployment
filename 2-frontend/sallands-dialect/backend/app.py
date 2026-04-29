@@ -1,3 +1,4 @@
+import os
 import json
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -132,10 +133,10 @@ async def health():
 @app.get("/")
 async def read_index():
     logger.info("serving index.html")
-    return FileResponse("static/index.html")
+    return FileResponse(FRONTEND_FOLDER / "index.html")
 
 
 if __name__ == "__main__":
     import uvicorn
-
-    uvicorn.run(app, host="0.0.0.0", port=80)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)

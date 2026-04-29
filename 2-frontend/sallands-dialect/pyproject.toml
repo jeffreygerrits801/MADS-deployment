@@ -12,6 +12,7 @@ dependencies = [
     "torch>=2.0",
     "matplotlib>=3.9.2",
     "requests>=2.32.5",
+    "fastapi[standard]>=0.115.6",
 ]
 readme = "README.md"
 requires-python = ">= 3.10"
@@ -19,9 +20,6 @@ requires-python = ">= 3.10"
 [project.optional-dependencies]
 scrape = [
     "beautifulsoup4>=4.12.3",
-]
-frontend = [
-    "fastapi[standard]>=0.115.6",
 ]
 
 [build-system]
